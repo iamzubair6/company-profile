@@ -2,49 +2,38 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { 
-  Database, 
-  Cloud, 
-  Code2, 
-  Smartphone, 
-  Server, 
-  Shield 
+import {
+  Database,
+  Cloud,
+  Code2,
+  Smartphone,
+  Server,
+  Shield,
 } from "lucide-react";
 
 const technologies = {
-  "Frontend": [
-    "React", "Next.js", "TypeScript", "Tailwind CSS",
-    "Vue.js", "Angular"
+  Frontend: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Vue.js",
+    "Angular",
   ],
-  "Backend": [
-    "Node.js", "Python", "Java", "Go",
-    ".NET Core", "PHP"
-  ],
-  "Database": [
-    "PostgreSQL", "MongoDB", "MySQL",
-    "Redis", "Elasticsearch"
-  ],
-  "Cloud": [
-    "AWS", "Azure", "Google Cloud",
-    "Docker", "Kubernetes"
-  ],
-  "Mobile": [
-    "React Native", "Flutter", "iOS",
-    "Android", "Kotlin"
-  ],
-  "DevOps": [
-    "CI/CD", "Jenkins", "GitLab",
-    "Terraform", "Ansible"
-  ]
+  Backend: ["Node.js", "Python", "Java", "Go", ".NET Core", "PHP"],
+  Database: ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Elasticsearch"],
+  Cloud: ["AWS", "Azure", "Google Cloud", "Docker", "Kubernetes"],
+  Mobile: ["React Native", "Flutter", "iOS", "Android", "Kotlin"],
+  DevOps: ["CI/CD", "Jenkins", "GitLab", "Terraform", "Ansible"],
 };
 
 const icons = {
-  "Frontend": Code2,
-  "Backend": Server,
-  "Database": Database,
-  "Cloud": Cloud,
-  "Mobile": Smartphone,
-  "DevOps": Shield
+  Frontend: Code2,
+  Backend: Server,
+  Database: Database,
+  Cloud: Cloud,
+  Mobile: Smartphone,
+  DevOps: Shield,
 };
 
 const TechnologyStack = () => {
@@ -60,13 +49,14 @@ const TechnologyStack = () => {
         >
           <h2 className="text-3xl font-bold mb-4">Technology Stack</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            We use cutting-edge technologies to build scalable and efficient solutions.
+            We use cutting-edge technologies to build scalable and efficient
+            solutions.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Object.entries(technologies).map(([category, techs], index) => {
-            const Icon = icons[category];
+            const Icon = icons[category as keyof typeof icons];
             return (
               <motion.div
                 key={category}
