@@ -2,10 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Boxes, CircuitBoard, Code2, Github } from "lucide-react";
 import Link from "next/link";
-import { Github, CircuitBoard, Code2, Boxes } from "lucide-react";
 
-const FloatingShape = ({ className }: { className?: string }) => (
+export const FloatingShape = ({ className }: { className?: string }) => (
   <motion.div
     className={`absolute rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-70 ${className}`}
     animate={{
@@ -22,7 +22,7 @@ const FloatingShape = ({ className }: { className?: string }) => (
   />
 );
 
-const Spotlight = () => (
+export const Spotlight = () => (
   <div className="pointer-events-none absolute inset-0 z-30 transition-all">
     <div className="absolute inset-auto h-[300px] w-[300px] bg-gradient-to-r from-primary/30 to-purple-500/30 dark:from-primary/20 dark:to-purple-500/20 blur-[100px]" />
   </div>
@@ -108,7 +108,17 @@ const HeroSection = () => {
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
           <div className="w-6 h-10 rounded-full border-2 border-primary/50 dark:border-primary/50 flex items-start justify-center p-1">
-            <div className="w-1 h-2 bg-primary/50 dark:bg-primary/50 rounded-full animate-bounce" />
+            <motion.div
+              className="w-1 h-2 bg-primary/50 dark:bg-primary/50 rounded-full"
+              animate={{
+                y: [0, 10, 0],
+              }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
           </div>
         </div>
       </div>
